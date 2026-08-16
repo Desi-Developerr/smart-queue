@@ -5,7 +5,18 @@
 </head>
 <body>
   <h1>Smart Queue Project</h1>
-  <p>Demo link working via GitHub Pages!</p>
-  <script src="index.js"></script>
+  <div id="result"></div>
+
+  <script>
+    // Backend se connect karne ka example
+    fetch("http://localhost:5000/api/queue")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("result").innerText = "Backend Response: " + JSON.stringify(data);
+      })
+      .catch(err => {
+        document.getElementById("result").innerText = "Error connecting backend!";
+      });
+  </script>
 </body>
 </html>
